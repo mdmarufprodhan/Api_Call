@@ -9,35 +9,32 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    
 
     @IBOutlet weak var textView: UITextView!
-    @IBAction func call(_ sender: Any) {
-        guard let url = URL(string: "https://api.darksky.net/forecast/352824027cc68ebcdf82edd59df645fd/37.8267,-122.4233")else{return
-            
+    
+    private let networkingClient = NetworkingClient()
+    
+    @IBAction func callButton(_ sender: Any) {
+        guard let urlToExecute = URL(string: "https://api.darksky.net/forecast/352824027cc68ebcdf82edd59df645fd/37.8267,-122.4233") else {
+            return
         }
-        let session = URLSession.shared
-        session.dataTask(with: url){( data,response,error)in
-            if let response = response{
-                print(response)
+        
+        networkingClient.execute(urlToExecute) { (json, error) in
+            if let error = error {
+                self.textView.text = error.localizedDescription
             }
-            if let data = data{
-                print(data)
-                self.textView.text = String(bytes: data, encoding: .utf8)
+            else if let json = json {
+                self.textView.text = json.description
             }
-        }.resume()
-    
-    
+        }
+
     }
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-
 }
+
 

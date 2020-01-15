@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1910545323CF1A7C00570318 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1910545223CF1A7C00570318 /* Alamofire.framework */; };
+		1910545523CF232500570318 /* NetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1910545423CF232500570318 /* NetworkingClient.swift */; };
+		1910545723CF29C400570318 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1910545223CF1A7C00570318 /* Alamofire.framework */; };
+		1910545823CF29C400570318 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1910545223CF1A7C00570318 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1983CFB523CC6E5100203604 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1983CFB423CC6E5100203604 /* AppDelegate.swift */; };
 		1983CFB723CC6E5100203604 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1983CFB623CC6E5100203604 /* ViewController.swift */; };
 		1983CFBA23CC6E5100203604 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1983CFB823CC6E5100203604 /* Main.storyboard */; };
@@ -33,7 +37,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1910545923CF29C400570318 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1910545823CF29C400570318 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1910545223CF1A7C00570318 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		1910545423CF232500570318 /* NetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClient.swift; sourceTree = "<group>"; };
 		1983CFB123CC6E5100203604 /* ApiCall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApiCall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1983CFB423CC6E5100203604 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1983CFB623CC6E5100203604 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1910545323CF1A7C00570318 /* Alamofire.framework in Frameworks */,
+				1910545723CF29C400570318 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +96,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1910545123CF1A7C00570318 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1910545223CF1A7C00570318 /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1983CFA823CC6E5100203604 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +111,7 @@
 				1983CFC823CC6E5200203604 /* ApiCallTests */,
 				1983CFD323CC6E5200203604 /* ApiCallUITests */,
 				1983CFB223CC6E5100203604 /* Products */,
+				1910545123CF1A7C00570318 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				1983CFB423CC6E5100203604 /* AppDelegate.swift */,
+				1910545423CF232500570318 /* NetworkingClient.swift */,
 				1983CFB623CC6E5100203604 /* ViewController.swift */,
 				1983CFB823CC6E5100203604 /* Main.storyboard */,
 				1983CFBB23CC6E5200203604 /* Assets.xcassets */,
@@ -135,6 +167,8 @@
 				1983CFAD23CC6E5100203604 /* Sources */,
 				1983CFAE23CC6E5100203604 /* Frameworks */,
 				1983CFAF23CC6E5100203604 /* Resources */,
+				1910545623CF294600570318 /* ShellScript */,
+				1910545923CF29C400570318 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -251,6 +285,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1910545623CF294600570318 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1983CFAD23CC6E5100203604 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -258,6 +313,7 @@
 			files = (
 				1983CFB723CC6E5100203604 /* ViewController.swift in Sources */,
 				1983CFB523CC6E5100203604 /* AppDelegate.swift in Sources */,
+				1910545523CF232500570318 /* NetworkingClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +489,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ApiCall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,6 +510,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ApiCall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
